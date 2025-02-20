@@ -21,7 +21,7 @@ final readonly class ViewBlog
     ) {
     }
 
-    #[Route(name: 'app_blog', path: '/blog', methods: ['GET'])]
+    #[Route(name: 'app_blog', path: '/blog', methods: ['GET'], staticGeneration: true)]
     public function __invoke(Request $request): Response
     {
         $response = new Response();

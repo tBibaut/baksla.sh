@@ -21,7 +21,7 @@ final readonly class ViewSitemap
     ) {
     }
 
-    #[Route(name: 'app_sitemap', path: 'sitemap.xml', methods: ['GET'], format: 'xml')]
+    #[Route(name: 'app_sitemap', path: 'sitemap.xml', methods: ['GET'], format: 'xml', staticGeneration: true)]
     public function __invoke(): Response
     {
         $urls = [

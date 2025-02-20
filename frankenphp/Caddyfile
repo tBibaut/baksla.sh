@@ -16,5 +16,8 @@
 
 	{$CADDY_SERVER_EXTRA_DIRECTIVES}
 
+	try_files {path} /static-pages{path}.html
+	try_files {path} /static-pages{path}
+
 	php_server
 }
