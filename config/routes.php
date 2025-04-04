@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 return static function (RoutingConfigurator $routingConfigurator): void {
     $routingConfigurator
         ->add('app_home', '/')
+        ->staticGeneration()
         ->controller(TemplateController::class)
         ->defaults([
             'template' => 'pages/website/home.html.twig',
@@ -16,6 +17,7 @@ return static function (RoutingConfigurator $routingConfigurator): void {
 
     $routingConfigurator
         ->add('app_legal_notices', '/legal-notices')
+        ->staticGeneration()
         ->controller(TemplateController::class)
         ->defaults([
             'template' => 'pages/website/legal_notices.html.twig',
@@ -31,6 +33,7 @@ return static function (RoutingConfigurator $routingConfigurator): void {
 
     $routingConfigurator
         ->add('app_robots', '/robots.txt')
+        ->staticGeneration()
         ->controller(TemplateController::class)
         ->format('txt')
         ->defaults([

@@ -8,6 +8,7 @@ use App\Blog\Domain\Exception\MissingArticleException;
 use App\Blog\Domain\Model\ArticlePreview;
 use App\Blog\Domain\Repository\ArticlePreviewRepository;
 use App\Blog\Domain\Repository\ArticleRepository;
+use App\Blog\Infrastructure\Symfony\HttpKernel\StaticSiteGeneration\ViewArticleParamsProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -27,7 +28,7 @@ final readonly class ViewArticle
     ) {
     }
 
-    #[Route(name: 'app_blog_article', path: '/blog/{id}', methods: ['GET'])]
+    #[Route(name: 'app_blog_article', path: '/blog/{id}', methods: ['GET'], staticGeneration: [ 'params' => ViewArticleParamsProvider::class ])]
     public function __invoke(Request $request, string $id): Response
     {
         $response = new Response();
